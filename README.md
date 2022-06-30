@@ -3,6 +3,7 @@
 ### Section 7 - Atomic design
 
 1. Atom の作成
+2. Molecule の作成
 
 ### Links
 
