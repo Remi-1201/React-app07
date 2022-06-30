@@ -6,6 +6,7 @@
 2. Molecule の作成
 3. Organism の作成 1
 4. Organism の作成 2
+5. Template の作成
 
 ### Links
 

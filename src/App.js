@@ -3,6 +3,8 @@ import { SecondaryButton } from "./components/atoms/button/SecondaryButton";
 import { SearchInput } from "./components/molecules/SearchInput";
 import { UserCard } from "./components/organisms/user/UserCard";
 import "./styles.css";
+import { BrowserRouter } from "react-router-dom";
+import { DefaultLayout } from "./components/templates/DefaultLayout";
 
 const user = {
   name: "Usapon",
@@ -17,12 +19,14 @@ const user = {
 
 export default function App() {
   return (
-    <div className="App">
-      <PrimaryButton>Test</PrimaryButton>
-      <SecondaryButton>Search</SecondaryButton>
-      <br />
-      <SearchInput />
-      <UserCard user={user} />
-    </div>
+    <BrowserRouter>
+      <DefaultLayout>
+        <PrimaryButton>Test</PrimaryButton>
+        <SecondaryButton>Search</SecondaryButton>
+        <br />
+        <SearchInput />
+        <UserCard user={user} />
+      </DefaultLayout>
+    </BrowserRouter>
   );
 }
