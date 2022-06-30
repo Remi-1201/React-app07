@@ -7,6 +7,7 @@
 3. Organism の作成 1
 4. Organism の作成 2
 5. Template の作成
+6. Page の作成
 
 ### Links
 
