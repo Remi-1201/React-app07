@@ -30,5 +30,6 @@ const SDL = styled.dl`
   dd {
     padding-left: 64px;
     padding-bottom: 8px;
+    overflow-wrap: break-word;
   }
 `;
