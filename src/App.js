@@ -1,12 +1,13 @@
-import { PrimaryButton } from "./components/atoms/button/PrimaryButton";
-import { SecondaryButton } from "./components/atoms/button/SecondaryButton";
-import { SearchInput } from "./components/molecules/SearchInput";
-import { UserCard } from "./components/organisms/user/UserCard";
+import React from "react";
 import "./styles.css";
-import { BrowserRouter } from "react-router-dom";
-import { DefaultLayout } from "./components/templates/DefaultLayout";
 import { Router } from "./router/Router";
+// 7-2 import {UserProvider} for globalState
+import { UserProvider } from "./providers/UserProvider";
 
 export default function App() {
-  return <Router />;
+  return (
+    <UserProvider>
+      <Router />
+    </UserProvider>
+  );
 }

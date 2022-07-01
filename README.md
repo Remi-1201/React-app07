@@ -12,6 +12,7 @@
 ### Section 7 - グローバルな state 管理
 
 1. { isAdmin } without globalState
+2. Context での state 管理(基本的な使い方)
 
 ### Links
 

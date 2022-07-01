@@ -1,8 +1,17 @@
+// 7-2 add useContext for globalState
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { UserContext } from "../../../providers/UserProvider";
 
 export const UserIconWithName = (props) => {
   // 7-1 add isAdmin
   const { image, name, isAdmin } = props;
+  // 7-2 add useContext for globalState
+  // - (UserContext) from UserProvider.jsx
+  const context = useContext(UserContext);
+  // console.log(context);
+  // = {contextName: "Usako"}
+
   return (
     <SContainer>
       <SImg height={160} width={160} src={image} alt={name} />
