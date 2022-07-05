@@ -5,12 +5,16 @@ import { UserContext } from "../../../providers/UserProvider";
 
 export const UserIconWithName = (props) => {
   // 7-1 add isAdmin
-  const { image, name, isAdmin } = props;
+  // 7-3 delete isAdmin
+  const { image, name } = props;
+
   // 7-2 add useContext for globalState
   // - (UserContext) from UserProvider.jsx
-  const context = useContext(UserContext);
   // console.log(context);
   // = {contextName: "Usako"}
+  // 7-3 change context to { userInfo }
+  const { userInfo } = useContext(UserContext);
+  const isAdmin = userInfo ? userInfo.isAdmin : false;
 
   return (
     <SContainer>

@@ -7,8 +7,9 @@ export const UserCard = (props) => {
   const { user, isAdmin } = props;
   return (
     <Card>
-      {/* 7-1 add {isAdmin}  */}
-      <UserIconWithName image={user.image} name={user.name} isAdmin={isAdmin} />
+      {/* 7-1 add {isAdmin} 
+          7-3 delete {isAdmin} */}
+      <UserIconWithName image={user.image} name={user.name} />
       <SDL>
         <dt>Mail</dt>
         <dd>{user.mail}</dd>

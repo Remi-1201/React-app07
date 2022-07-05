@@ -1,16 +1,27 @@
+// 7-3 add useContext
+import React, { useContext } from "react";
 import styled from "styled-components";
 // 7-1 add useHistory to make link to other pages
 import { useHistory } from "react-router-dom";
 import { SecondaryButton } from "../atoms/button/SecondaryButton";
+import { UserContext } from "../../providers/UserProvider";
 
 export const Top = () => {
   // 7-1 add useHistory
   const history = useHistory();
+  // 7-3 add setUserInfo
+  const { setUserInfo } = useContext(UserContext);
+
   // 7-1 add onClick & flag { isAdmin }
-  const onClickAdmin = () =>
-    history.push({ pathname: "/users", state: { isAdmin: true } });
-  const onClickGeneral = () =>
-    history.push({ pathname: "/users", state: { isAdmin: false } });
+  // 7-3 add setUserInfo
+  const onClickAdmin = () => {
+    setUserInfo({ isAdmin: true });
+    history.push("/users");
+  };
+  const onClickGeneral = () => {
+    setUserInfo({ isAdmin: false });
+    history.push("/users");
+  };
 
   return (
     <SContainer>
