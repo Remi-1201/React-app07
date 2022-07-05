@@ -1,14 +1,16 @@
 import styled from "styled-components";
 import { Card } from "../../atoms/card/Card";
 import { UserIconWithName } from "../../molecules/user/UserIconWithName";
+import React, { memo } from "react";
 
-export const UserCard = (props) => {
+// 7-4 User.jsxでsetUserInfoが再レンダリングされる時、UserCardも再レンダリングされる必要がないので、memo()で囲む。
+export const UserCard = memo((props) => {
   // 7-1 add {isAdmin} as props
-  const { user, isAdmin } = props;
+  const { user } = props;
   return (
     <Card>
-      {/* 7-1 add {isAdmin} 
-          7-3 delete {isAdmin} */}
+      {/* 7-1 add {isAdmin}
+                7-3 delete {isAdmin} */}
       <UserIconWithName image={user.image} name={user.name} />
       <SDL>
         <dt>Mail</dt>
@@ -22,7 +24,7 @@ export const UserCard = (props) => {
       </SDL>
     </Card>
   );
-};
+});
 
 const SDL = styled.dl`
   text-align: left;

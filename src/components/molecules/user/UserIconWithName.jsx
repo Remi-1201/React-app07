@@ -1,9 +1,10 @@
 // 7-2 add useContext for globalState
-import React, { useContext } from "react";
+import React, { useContext, memo } from "react";
 import styled from "styled-components";
 import { UserContext } from "../../../providers/UserProvider";
 
-export const UserIconWithName = (props) => {
+// 7-4 User.jsxでsetUserInfoが再レンダリングされる時、UserIconWithNameも再レンダリングされる必要がないので、memo()で囲む。
+export const UserIconWithName = memo((props) => {
   // 7-1 add isAdmin
   // 7-3 delete isAdmin
   const { image, name } = props;
@@ -25,7 +26,7 @@ export const UserIconWithName = (props) => {
       {isAdmin && <SEdit>Edit</SEdit>}
     </SContainer>
   );
-};
+});
 
 const SContainer = styled.div`
   text-align: center;

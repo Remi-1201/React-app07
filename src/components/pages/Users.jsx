@@ -1,8 +1,11 @@
 import styled from "styled-components";
+import { SecondaryButton } from "../atoms/button/SecondaryButton";
 // 7-1 add useLocation
 // 7-3 delete useLocation
 import { SearchInput } from "../molecules/SearchInput";
 import { UserCard } from "../organisms/user/UserCard";
+import React, { useContext } from "react";
+import { UserContext } from "../../providers/UserProvider";
 
 const users = [...Array(10).keys()].map((val) => {
   return {
@@ -24,10 +27,18 @@ export const Users = () => {
   // 7-1 to judge there's state or not
   // 7-3 delete useLocation & isAdmin function
 
+  // 7-4 add functions for SecondaryButton
+  const { userInfo, setUserInfo } = useContext(UserContext);
+
+  const onClickSwitch = () => setUserInfo({ isAdmin: !userInfo.isAdmin });
+
   return (
     <SContainer>
       <h2>All Users</h2>
       <SearchInput />
+      <br />
+      {/* 7-4 add SecondaryButton */}
+      <SecondaryButton onClick={onClickSwitch}>Switch</SecondaryButton>
       <SUserArea>
         {users.map((user) => (
           // 7-1 add {isAdmin}
