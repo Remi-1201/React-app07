@@ -1,7 +1,12 @@
 // 7-2 add useContext for globalState
-import React, { useContext, memo } from "react";
+// 7-5 delete UserContext
+import React, { memo } from "react";
 import styled from "styled-components";
-import { UserContext } from "../../../providers/UserProvider";
+// 7-5 delete UserContext
+// import { UserContext } from "../../../providers/UserProvider";
+import { useRecoilValue } from "recoil";
+// 7-5 add userState
+import { userState } from "../../../store/userState";
 
 // 7-4 User.jsxでsetUserInfoが再レンダリングされる時、UserIconWithNameも再レンダリングされる必要がないので、memo()で囲む。
 export const UserIconWithName = memo((props) => {
@@ -14,7 +19,9 @@ export const UserIconWithName = memo((props) => {
   // console.log(context);
   // = {contextName: "Usako"}
   // 7-3 change context to { userInfo }
-  const { userInfo } = useContext(UserContext);
+  // 7-5 comment out userInfo
+  // const { userInfo } = useContext(UserContext);
+  const userInfo = useRecoilValue(userState);
   const isAdmin = userInfo ? userInfo.isAdmin : false;
 
   return (

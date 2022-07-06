@@ -5,7 +5,11 @@ import { SecondaryButton } from "../atoms/button/SecondaryButton";
 import { SearchInput } from "../molecules/SearchInput";
 import { UserCard } from "../organisms/user/UserCard";
 import React, { useContext } from "react";
-import { UserContext } from "../../providers/UserProvider";
+// 7-5 comment out UserContext
+// import { UserContext } from "../../providers/UserProvider";
+// 7-5 add useRecoilState
+import { useRecoilState } from "recoil";
+import { userState } from "../../store/userState";
 
 const users = [...Array(10).keys()].map((val) => {
   return {
@@ -27,8 +31,10 @@ export const Users = () => {
   // 7-1 to judge there's state or not
   // 7-3 delete useLocation & isAdmin function
 
-  // 7-4 add functions for SecondaryButton
-  const { userInfo, setUserInfo } = useContext(UserContext);
+  // 7-4 add UserContext, onClickSwitch functions for SecondaryButton
+  // 7-5 comment out UserContext
+  // const { userInfo, setUserInfo } = useContext(UserContext);
+  const [userInfo, setUserInfo] = useRecoilState(userState);
 
   const onClickSwitch = () => setUserInfo({ isAdmin: !userInfo.isAdmin });
 

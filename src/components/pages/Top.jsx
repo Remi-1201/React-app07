@@ -1,16 +1,23 @@
 // 7-3 add useContext
-import React, { useContext } from "react";
+// 7-5 delete useContext
+import React from "react";
 import styled from "styled-components";
 // 7-1 add useHistory to make link to other pages
 import { useHistory } from "react-router-dom";
 import { SecondaryButton } from "../atoms/button/SecondaryButton";
-import { UserContext } from "../../providers/UserProvider";
+// 7-5 comment out UserContext
+// import { UserContext } from "../../providers/UserProvider";
+// 7-5 add useSetRecoilState
+import { useSetRecoilState } from "recoil";
+import { userState } from "../../store/userState";
 
 export const Top = () => {
   // 7-1 add useHistory
   const history = useHistory();
   // 7-3 add setUserInfo
-  const { setUserInfo } = useContext(UserContext);
+  // 7-5 comment out it
+  // const { setUserInfo } = useContext(UserContext);
+  const setUserInfo = useSetRecoilState(userState);
 
   // 7-1 add onClick & flag { isAdmin }
   // 7-3 add setUserInfo
